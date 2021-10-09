@@ -1,8 +1,11 @@
-const recipebook = require('./controllers/recipebook.js')
+require('dotenv').config()
 const express = require('express')
 const app = express()
+require('./db/db')
 const PORT = process.env.PORT || 9000
 
+// Resource Controller (router and controller callback)
+const recipebook = require('./controllers/recipebook.js')
 
 
 // Middleware

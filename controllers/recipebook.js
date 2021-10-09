@@ -2,8 +2,25 @@ const express = require('express')
 const router = express.Router()
 const Recipe = require('../models/recipe.js')
 
-router.get('/', (req, res) => {
-  res.send('index')
+
+
+router.get('/', async (req, res) => {
+  try {
+    const foundRecipes = await Recipe.find();
+    res.status(200).json(foundRecipes)
+  } catch(err) {
+    res.status(400).json({ error: err.message })
+  }
+})
+
+router.get('/:id', async (req, res) => {
+  try {
+    const foundRecipes = await
+    Recipe.findById(req.params.id);
+    res.status(200).json(foundRecipes)
+  } catch(err) {
+    res.status(400).json({ error: err.message})
+  }
 })
 
 router.post('/', async (req, res) => {
@@ -17,6 +34,16 @@ router.post('/', async (req, res) => {
   }
 })
 
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const deletedRecipe = await
+    Recipe.findByIdAndRemove(req.params.id);
+    res.status(200).json(deletedRecipe)
+  } catch(err) {
+    res.status(400).json({ error: err.message })
+  }
+})
 
 
 
