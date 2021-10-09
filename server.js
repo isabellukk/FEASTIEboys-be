@@ -1,14 +1,28 @@
 require('dotenv').config()
+require('./db/db')
+
 const express = require('express')
 const app = express()
-require('./db/db')
-const PORT = process.env.PORT || 9000
+const cors = require('cors')
 
-// Resource Controller (router and controller callback)
+const PORT = process.env.PORT || 9000
 const recipebook = require('./controllers/recipebook.js')
+
+const whitelist = ["http://localhost:3000"];
+
+const corsOptions = {
+  origin: function(origin, callback) {
+    if (whitelist.indexOf(origin) != -1 || !origin) {
+      callback(null, true)
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  }
+};
 
 
 // Middleware
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use('/recipes', recipebook)
 
