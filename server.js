@@ -1,12 +1,14 @@
 require('dotenv').config()
-require('./db/db')
+
 
 const express = require('express')
+const passport = require('passport')
 const app = express()
 const cors = require('cors')
-
+require('./db/db')
 const PORT = process.env.PORT || 9000
-const recipebook = require('./controllers/recipebook.js')
+const recipebookController = require('./controllers/recipebook')
+const authController = require('./controllers/auth')
 
 const whitelist = ["http://localhost:3000"];
 
@@ -25,7 +27,11 @@ const corsOptions = {
 // Middleware
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use('/recipes', recipebook)
+app.use(passport.initialize())
+
+// Auth Controller Middleware
+app.use('/auth', authController)
+app.use('/recipes', recipebookController)
 
 
 
