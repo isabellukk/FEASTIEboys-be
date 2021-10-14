@@ -1,56 +1,76 @@
 const express = require('express')
+const User = require('../models/User')
 const bcrypt = require('bcrypt')
-const User = require('../models/user')
-const { createUserToken } = require('../middleware/auth')
+const {createUserToken, requireToken} = require("../middleware/auth")
 const router = express.Router()
 
-// Controller (DB interface)
-// Register router
-// Post ('/auth/register')
-const register = async (req,res) => {
-  try{
-    const salt = await bcrypt.genSalt(10);
-    const passwordHash = await bcrypt.hash(req.body.password, salt)
-    req.body.password = passwordHash
-    console.log(req.body.password);
+//Controllers (DB INTERFACE)
+//Register Route
+//post
+const register = async (req, res) => {
+    try {
+        const salt = await bcrypt.genSalt(10)
+        const passwordHash = await bcrypt.hash(req.body.password, salt)
+        const passwordStore = req.body.password
+        req.body.password = passwordHash
+        const newUser = await User.create(req.body)
+        console.log(newUser)
 
-    const newUser = await User.create(req.body)
-    const {username, _id} = newUser
-    console.log(newUser);
-    res.status(201).json({
-      currentUser: newUser,
-      isLoggedIn: true
-
-    })
-  }catch(err){
-    res.status(400).json({error: err.message})
-  }
-  // res.send('post register')
+        if (newUser) {
+            req.body.password = passwordStore
+            const authenticatedUserToken = createUserToken(req, newUser)
+            res.status(201).json({
+                user: newUser,
+                isLoggedIn: true,
+                token: authenticatedUserToken
+            })
+        } else {
+            res.status(400).json({ error: 'something went wrong new user' })
+        }
+    } catch (err) {
+        res.status(400).json({ error: err.message })
+    }
 }
 
-// Login Router
-// Post ('/auth/login')
-const login = async (req,res) => {
-  try{
-    const loggingUser = req.body.username
-    const foundUser = await User.findOne({username: loggingUser})
-    const token = await createUserToken(req, foundUser);
-    console.log(token);
-    res.status(200).json({
-      user: foundUser,
-      isLoggedIn: true,
-      token: token
-    })
-  }catch(err){
-    res.status(401).json({error: err.message})
-  }
+//login
+const login = async (req, res) => {
+    try {
+        const loggingUser = req.body.username
+        const foundUser = await User.findOne({ username: loggingUser })
+        const token = await createUserToken(req, foundUser)
+        console.log(token)
+
+        res.status(200).json({
+            user: foundUser,
+            isLoggedIn: true,
+            token: token
+        })
+
+    } catch (err) {
+        res.status(401).json({ error: err.message })
+    }
 }
 
+// post login
 
-// Logout
-// Get ('/auth/logout')
+//logout
 
-// Routing
+//get logout
+router.get( "/logout", requireToken, async (req, res) => {
+    try {
+      const currentUser = req.user.username
+      delete req.user
+      res.status(200).json({
+        message: `${currentUser} currently logged in`,
+        isLoggedIn: false,
+        token: "",
+      });
+    } catch (err) {
+      res.status(400).json({ error: `check user ${err.message}`});
+    }
+})
+
+//Routing
 router.post('/register', register)
 router.post('/login', login)
 

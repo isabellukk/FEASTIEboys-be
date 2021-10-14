@@ -9,6 +9,7 @@ require('./db/db')
 const PORT = process.env.PORT || 9000
 const recipebookController = require('./controllers/recipebook')
 const authController = require('./controllers/auth')
+const User = require('./models/User')
 
 const whitelist = ["http://localhost:3000"];
 
@@ -31,9 +32,17 @@ app.use(passport.initialize())
 
 // Auth Controller Middleware
 app.use('/auth', authController)
-app.use('/recipes', recipebookController)
+app.use('/:UserId/recipes', recipebookController)
 
-
+app.post('/register', (req,res) => {
+  User.create(req.body, (err, createdUser) => {
+    if (err) {
+      res.send(err)
+    }else{
+      res.send(createdUser)
+    }
+  })
+})
 
 app.listen(PORT, () => {
   console.log('✨✨', `It's a party on port ${PORT}`, '✨✨',);

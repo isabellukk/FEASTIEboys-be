@@ -11,7 +11,7 @@ const options = {
   secretOrKey: secret
 }
 
-const User = require('../models/user')
+const User = require('../models/User')
 
 const strategy = new Strategy(options, function(jwt_payload, done){
   User.findById(jwt_payload.id).then(
