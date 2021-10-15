@@ -35,8 +35,8 @@ const register = async (req, res) => {
 //login
 const login = async (req, res) => {
     try {
-        const loggingUser = req.body.username
-        const foundUser = await User.findOne({ username: loggingUser })
+        const loggingUser = req.body.user
+        const foundUser = await User.findOne({ user: loggingUser })
         const token = await createUserToken(req, foundUser)
         console.log(token)
 

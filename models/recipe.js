@@ -1,11 +1,22 @@
 const mongoose = require('mongoose')
 
-const recipeSchema = mongoose.Schema({
-  name: {type: String, required: true},
-  description: {type: String},
-  ingredients: {type: Array},
-  directions: {type: String},
-  img: {type: String},
+const RecipeSchema = mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String
+  },
+  ingredients: {
+    type: String
+  },
+  directions: {
+    type: String
+  },
+  img: {
+    type: String
+  },
   creator: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
@@ -13,4 +24,4 @@ const recipeSchema = mongoose.Schema({
   }
 }, {timestamps: true})
 
-module.exports = mongoose.model('Recipe', recipeSchema)
+module.exports = mongoose.model('Recipe', RecipeSchema)
