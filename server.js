@@ -8,7 +8,7 @@ const cors = require('cors')
 const PORT = process.env.PORT || 9000
 const recipebook = require('./controllers/recipebook.js')
 
-const whitelist = ["http://localhost:3000"];
+const whitelist = ["http://localhost:3000", "https://FEASTIEboys.surge.sh", "https://feastieboys.herokuapp.com/"];
 
 const corsOptions = {
   origin: function (origin, callback) {
