@@ -13,18 +13,18 @@ As a user, I would love to minimize food waste by using what I already have on h
 As a user who loves cooking, I aleady have a lot of recipes I already love. Sometimes I forget about them until a friend or family member requests for it. I can input my recipes in the recipe book so theres never any guessing for what I have made, what goes in it, and how its made. 
 
 ## Wireframe
-<img width="400" alt="Screen Shot 2021-10-17 at 10 28 42 PM" src="https://user-images.githubusercontent.com/87626914/137673976-78093fd0-2f78-4dc8-aa01-5a8dc97f62e9.png"><img width="400" alt="Screen Shot 2021-10-17 at 10 27 09 PM" src="https://user-images.githubusercontent.com/87626914/137673863-edce4d53-ab0e-412f-a80d-3813406346c4.png">
-<img width="400" alt="Screen Shot 2021-10-17 at 10 29 34 PM" src="https://user-images.githubusercontent.com/87626914/137674047-22a69603-07d5-4c80-982c-7cba3f773419.png"><img width="400" alt="Screen Shot 2021-10-17 at 10 30 00 PM" src="https://user-images.githubusercontent.com/87626914/137674079-a69b0cc3-4eac-4767-a146-e7ebaff60bfb.png">
+<img width="350" alt="Screen Shot 2021-10-17 at 10 28 42 PM" src="https://user-images.githubusercontent.com/87626914/137673976-78093fd0-2f78-4dc8-aa01-5a8dc97f62e9.png"><img width="350" alt="Screen Shot 2021-10-17 at 10 27 09 PM" src="https://user-images.githubusercontent.com/87626914/137673863-edce4d53-ab0e-412f-a80d-3813406346c4.png">
+<img width="350" alt="Screen Shot 2021-10-17 at 10 29 34 PM" src="https://user-images.githubusercontent.com/87626914/137674047-22a69603-07d5-4c80-982c-7cba3f773419.png"><img width="350" alt="Screen Shot 2021-10-17 at 10 30 00 PM" src="https://user-images.githubusercontent.com/87626914/137674079-a69b0cc3-4eac-4767-a146-e7ebaff60bfb.png">
 
-<img width="400" alt="Screen Shot 2021-10-17 at 10 30 27 PM" src="https://user-images.githubusercontent.com/87626914/137674129-109dae87-5b30-48bf-bacc-6bbd8fa00870.png">
+<img width="350" alt="Screen Shot 2021-10-17 at 10 30 27 PM" src="https://user-images.githubusercontent.com/87626914/137674129-109dae87-5b30-48bf-bacc-6bbd8fa00870.png">
 
 ## FEASTIEboys app
 
 
 
-<img width="900" alt="Screen Shot 2021-10-17 at 11 01 57 PM" src="https://user-images.githubusercontent.com/87626914/137677011-895f4fb1-b0c2-4cce-b47a-5011ff55759e.png">
+<img width="700" alt="Screen Shot 2021-10-17 at 11 01 57 PM" src="https://user-images.githubusercontent.com/87626914/137677011-895f4fb1-b0c2-4cce-b47a-5011ff55759e.png">
 
-<img width="900" alt="Screen Shot 2021-10-17 at 11 04 57 PM" src="https://user-images.githubusercontent.com/87626914/137677308-600571eb-f872-4a09-b17f-de4d086ab5a2.png">
+<img width="700" alt="Screen Shot 2021-10-17 at 11 04 57 PM" src="https://user-images.githubusercontent.com/87626914/137677308-600571eb-f872-4a09-b17f-de4d086ab5a2.png">
 
 ![ezgif-7-21d546baae45](https://user-images.githubusercontent.com/87626914/137677671-ca869cca-bfcd-4aeb-a3b9-39988c15779b.gif)
 
